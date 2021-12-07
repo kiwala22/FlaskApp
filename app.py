@@ -5,12 +5,10 @@ from werkzeug.security import check_password_hash, generate_password_hash
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 
-# DB stored procedure
-
 # MySQL configurations
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Rosenamayanja.22'
-app.config['MYSQL_DB'] = 'FlaskApp'
+app.config['MYSQL_PASSWORD'] = '' #Enter your mysql root password
+app.config['MYSQL_DB'] = '' #Enter your DB name
 app.config['MYSQL_HOST'] = 'localhost'
 
 mysql = MySQL(app)
@@ -88,10 +86,5 @@ def status():
         return jsonify({'status': False})
 
 if __name__ == "__main__":
-    # app.secret_key = 'super secret key'
-    # app.config['SESSION_TYPE'] = 'filesystem'
-
-    # sess.init_app(app)
-
     app.debug = True
     app.run()
